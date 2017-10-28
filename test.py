@@ -7,4 +7,4 @@ b = np.array([1,1,1])
 c = np.dot(a,b)
 print (c)
 
-#测试一下
+#binggo
