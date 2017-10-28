@@ -6,5 +6,3 @@ a = np.array([1,1,1])
 b = np.array([1,1,1])
 c = np.dot(a,b)
 print (c)
-
-#binggo
