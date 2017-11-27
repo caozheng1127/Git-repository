@@ -19,14 +19,14 @@ y = tf.placeholder("float", [None, n_classes]) # 用placeholder先占地方，�
 
 # 初始化weight & bias
 weights = {
-'h1': tf.Variable(tf.random_normal([n_input, n_hidden_1])),
-'h2': tf.Variable(tf.random_normal([n_hidden_1, n_hidden_2])),
-'out': tf.Variable(tf.random_normal([n_hidden_2, n_classes]))
+    'h1': tf.Variable(tf.random_normal([n_input, n_hidden_1])),
+    'h2': tf.Variable(tf.random_normal([n_hidden_1, n_hidden_2])),
+    'out': tf.Variable(tf.random_normal([n_hidden_2, n_classes]))
 }
 biases = {
-'b1': tf.Variable(tf.random_normal([n_hidden_1])),
-'b2': tf.Variable(tf.random_normal([n_hidden_2])),
-'out': tf.Variable(tf.random_normal([n_classes]))
+    'b1': tf.Variable(tf.random_normal([n_hidden_1])),
+    'b2': tf.Variable(tf.random_normal([n_hidden_2])),
+    'out': tf.Variable(tf.random_normal([n_classes]))
 }
 # 创建模型
 def multilayer_perceptron(x, weights, biases):
@@ -49,23 +49,21 @@ init = tf.global_variables_initializer()
 with tf.Session() as sess:
     sess.run(init)
 # 循环训练
-for epoch in range(training_epochs):
-    avg_cost = 0.
-total_batch = int(mnist.train.num_examples/batch_size)# 分批训练
-for i in range(total_batch):
-    batch_x, batch_y = mnist.train.next_batch(batch_size)
+    for epoch in range(training_epochs):
+        avg_cost = 0.
+        total_batch = int(mnist.train.num_examples/batch_size)# 分批训练
+        for i in range(total_batch):
+            batch_x, batch_y = mnist.train.next_batch(batch_size)
 # 数据的喂给，并运行optimizer和cost
-_, c = sess.run([optimizer, cost], feed_dict={x: batch_x,
-y: batch_y})
+            _, c = sess.run([optimizer, cost], feed_dict={x: batch_x,y: batch_y})
 #计算平均损失函数
-avg_cost += c / total_batch
+            avg_cost += c / total_batch
 # 每epoch step 显示log日志
-if epoch % display_step == 0:
-    print("Epoch:", '%04d' % (epoch+1), "cost=", \
-"{:.9f}".format(avg_cost))
-print("Optimization Finished!")
+        if epoch % display_step == 0:
+            print("Epoch:", '%04d' % (epoch+1), "cost=","{:.9f}".format(avg_cost))
+    print("Optimization Finished!")
 # 测试模型
-correct_prediction = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
+    correct_prediction = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
 # 计算精确度
-accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
-print("Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
+    accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
+    print("Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
