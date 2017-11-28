@@ -48,6 +48,7 @@ if __name__ == "__main__":
     train_step = optimizer.minimize(loss)
 
     init = tf.global_variables_initializer()
+    
     sess = tf.Session()
     sess.run(init)
 
