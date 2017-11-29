@@ -1,2 +1,2 @@
 # headfirst_tensorflow
-学习headfirst trnsorflow和tensorflow实战时的code记录
+学习headfirst tensorflow和tensorflow实战时的code记录
