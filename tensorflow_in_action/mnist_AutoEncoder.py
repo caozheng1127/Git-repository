@@ -3,6 +3,7 @@ import sklearn.preprocessing as prep
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 
+#让权重合适的被初始化
 def xavier_init(fan_in, fan_out, constant = 1):
     low = -constant * np.sqrt(6.0 / (fan_in + fan_out))
     high = constant * np.sqrt(6.0 / (fan_in + fan_out))
