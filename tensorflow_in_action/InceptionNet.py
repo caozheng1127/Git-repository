@@ -53,7 +53,7 @@ def inception_v3_base(inputs, scope=None):
                 branch_2 = slim.conv2d(branch_2, 96, [3, 3], scope='Conv2d_0c_3x3')
             with tf.variable_scope('Branch_3'):
                 branch_3 = slim.avg_pool2d(net, [3, 3], scope='AvgPool_0a_3x3')
-                branch_3 = slim.conv2d(branch_3, 64, [1, 1], scope='Conpe="conv2d_0b_1x1')
+                branch_3 = slim.conv2d(branch_3, 64, [1, 1], scope='Conv2d_0b_1x1')
             net = tf.concat([branch_0, branch_1, branch_2, branch_3], 3)
 
         with tf.variable_scope('Mixed_5d'):
