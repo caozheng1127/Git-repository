@@ -28,7 +28,7 @@ def inception_v3_base(inputs, scope=None):
     with slim.arg_scope([slim.conv2d, slim.max_pool2d, slim.avg_pool2d], stride=1, padding='SAME'):
         with tf.variable_scope('Mixed_5b'):
             with tf.variable_scope('Branch_0'):
-                branch_0 = slim.cinv2d(net, 64, [1, 1], scope='Conv2s_0a_1x1')
+                branch_0 = slim.conv2d(net, 64, [1, 1], scope='Conv2s_0a_1x1')
             with tf.variable_scope('Branch_1'):
                 branch_1 = slim.conv2d(net, 48, [1, 1], scope='Conv2d_0a_1x1')
                 branch_1 = slim.conv2d(branch_1, 64, [5, 5], scope='Conv2d_0b_5x5')
