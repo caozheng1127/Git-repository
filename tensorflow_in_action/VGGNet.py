@@ -81,7 +81,7 @@ def time_tensorflow_run(session, target, feed, info_string):
     mn = total_duration / num_batches
     vr = total_duration_squared / num_batches - mn * mn
     sd = math.sqrt(abs(vr))
-    print('%s: %d across %d steps, %.3f +/- %.3f sec / batch' % (datetime.now(), info_string, num_batches, mn, sd))
+    print('%s: %s across %d steps, %.3f +/- %.3f sec / batch' % (datetime.now(), info_string, num_batches, mn, sd))
 
 def run_benchmark():
     with tf.Graph().as_default():
