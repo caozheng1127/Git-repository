@@ -19,7 +19,7 @@ def conv2d_same(inputs, num_outputs, kernel_size, stride, scope=None):
         pad_total = kernel_size - 1
         pad_beg = pad_total // 2
         pad_end = pad_total - pad_beg
-        inputs = tf.pad(inputs, [[0, 0], [pad_beg, pad_end], [0, 0]])
+        inputs = tf.pad(inputs, [[0, 0], [pad_beg, pad_end], [pad_beg, pad_end], [0, 0]])
         return slim.conv2d(inputs, num_outputs, kernel_size, stride=stride, padding='VALID', scope=scope)
 
 @slim.add_arg_scope
