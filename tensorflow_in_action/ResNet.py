@@ -42,7 +42,7 @@ def resnet_arg_scope(is_training=True, weight_decay=0.0001, batch_norm_decay=0.9
         'updates_collections': tf.GraphKeys.UPDATE_OPS,
     }
 
-    with slim.add_arg_scope(
+    with slim.arg_scope(
         [slim.conv2d],
         weights_regularizer=slim.l2_regularizer(weight_decay),
         weights_initializer=slim.variance_scaling_initializer(),
