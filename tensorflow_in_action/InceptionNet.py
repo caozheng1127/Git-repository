@@ -90,7 +90,7 @@ def inception_v3_base(inputs, scope=None):
                 branch_1 = slim.conv2d(branch_1, 128, [1, 7], scope='Conv2d_0b_1x7')
                 branch_1 = slim.conv2d(branch_1,  192, [7, 1], scope='Conv2d_0c_7x1')
             with tf.variable_scope('Branch_2'):
-                branch_2 = slim.conv2d(net, 128, [1, 1], scopw='Conv2d_0a_1x1')
+                branch_2 = slim.conv2d(net, 128, [1, 1], scope='Conv2d_0a_1x1')
                 branch_2 = slim.conv2d(branch_2, 128, [7, 1], scope='Conv2d_0b_7x1')
                 branch_2 = slim.conv2d(branch_2, 128, [1, 7], scope='Conv2d_0c_1x7')
                 branch_2 = slim.conv2d(branch_2, 128, [7, 1], scope='Conv2d_0d_7x1')
@@ -176,7 +176,7 @@ def inception_v3_base(inputs, scope=None):
                 branch_1 = tf.concat([slim.conv2d(branch_1, 384, [1, 3], scope='Conv2d_0b_1x3'),
                                       slim.conv2d(branch_1, 384, [3, 1], scope='Conv2d_0b_3x1')],3)
             with tf.variable_scope('Branch_2'):
-                branch_2 = slim.conv2d(net, 448, [1, 1], scopw='Conv2d_0a_1x1')
+                branch_2 = slim.conv2d(net, 448, [1, 1], scope='Conv2d_0a_1x1')
                 branch_2 = slim.conv2d(branch_2, 384, [3, 3], scope='Conv2d_0b_3x3')
                 branch_2 = tf.concat([slim.conv2d(branch_2, 384, [1, 3], scope='Conv2d_0c_1x3'),
                                       slim.conv2d(branch_2, 384, [3, 1], scope='Conv2d_0d_3x1')], 3)
@@ -193,7 +193,7 @@ def inception_v3_base(inputs, scope=None):
                 branch_1 = tf.concat([slim.conv2d(branch_1, 384, [1, 3], scope='Conv2d_0b_1x3'),
                                       slim.conv2d(branch_1, 384, [3, 1], scope='Conv2d_0c_3x1')],3)
             with tf.variable_scope('Branch_2'):
-                branch_2 = slim.conv2d(net, 448, [1, 1], scopw='Conv2d_0a_1x1')
+                branch_2 = slim.conv2d(net, 448, [1, 1], scope='Conv2d_0a_1x1')
                 branch_2 = slim.conv2d(branch_2, 384, [3, 3], scope='Conv2d_0b_3x3')
                 branch_2 = tf.concat([slim.conv2d(branch_2, 384, [1, 3], scope='Conv2d_0c_1x3'),
                                       slim.conv2d(branch_2, 384, [3, 1], scope='Conv2d_0d_3x1')], 3)
