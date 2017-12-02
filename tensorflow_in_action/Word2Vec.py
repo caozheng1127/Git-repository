@@ -170,4 +170,3 @@ plot_only = 100
 low_dim_embs = tsne.fit_transform(final_embeddings[:plot_only, :])
 labels = [reverse_dictionary[i] for i in range(plot_only)]
 plot_with_labels(low_dim_embs, labels)
-
