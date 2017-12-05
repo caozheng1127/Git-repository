@@ -288,3 +288,4 @@ with tf.Session() as sess:
 rMat = np.resize(np.array(rList), [len(rList) // 100, 100])
 rMean = np.average(rMat, 1)
 plt.plot(rMean)
+plt.show()
