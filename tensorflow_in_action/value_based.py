@@ -1,3 +1,5 @@
+#此code跑出来的结果有些问题，可以参考value_base_download.py
+
 import numpy as np
 import random
 import itertools
